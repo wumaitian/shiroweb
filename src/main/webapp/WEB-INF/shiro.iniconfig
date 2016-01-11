@@ -1,0 +1,16 @@
+[main]
+authc.loginUrl = /login
+roles.unauthorizedUrl=/unauthorized.jsp
+perms.unauthorizedUrl=/unauthorized.jsp
+[users]
+ejiaofei=123456,admin
+dingxin=123,teacher
+zhangsan=123
+[roles]
+admin=users:*
+teacher=student:*
+[urls]
+/login=anon
+/admin=authc
+/student=roles[teacher]
+/teacher=perms["users:add"]
